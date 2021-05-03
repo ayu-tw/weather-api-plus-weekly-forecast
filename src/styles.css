@@ -4,7 +4,7 @@
   padding: 15px;
   border: 2px solid #8fd9a8;
   border-radius: 5px;
-  max-width: 500px;
+  max-width: 600px;
   background-color: #8fd9a8;
 }
 
@@ -54,10 +54,10 @@
 #wind-speed,
 #sunset,
 #sunset-time {
-  background-color: rgba(210, 230, 156, 0.4);
   border: transparent;
   border-radius: 2px;
   margin: 5px auto;
+  background-color: rgba(210, 230, 156, 0.4);
 }
 
 #celsius,
@@ -91,16 +91,19 @@ footer a {
   margin-top: 20px;
   text-align: center;
   font-weight: bold;
+  border-radius: 10px;
 }
 
 .weekly-forecast img {
+  display: block;
+  margin: 0 -13px;
 }
 
 .day-of-week {
   font-size: 16px;
-
   opacity: 0.7;
 }
+
 .temperature-the-day-max {
   font-size: 13px;
 }
@@ -108,4 +111,9 @@ footer a {
 .temperature-the-day-min {
   font-size: 13px;
   opacity: 0.7;
+}
+
+#pointed-day:hover {
+  border: 1px solid #d2e69c;
+  border-radius: 10px;
 }

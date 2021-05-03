@@ -89,7 +89,6 @@ function updateCurrentInfo(response) {
 function getWeeklyForecast(coordinates) {
   let apiKey = "05348ae2e09beca97cb2165f14ee5d2b";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(weeklyForecast);
 }
 
@@ -123,16 +122,15 @@ function displayCelsiusTemp(event) {
 }
 
 function weeklyForecast(response) {
-  console.log(response.data.daily);
   let forecastElement = document.querySelector("#six-day-forecast");
   let forecastHTML = `  <div class="row">`;
   let days = response.data.daily;
   days.forEach(function (forecasting, index) {
-    if (index < 5) {
+    if (index < 6) {
       forecastHTML =
         forecastHTML +
         `
-    <div class="col-2">
+    <div class="col-2"  id="pointed-day">
       <div class="day-of-week">
         ${formatDay(forecasting.dt)}
       </div>
@@ -141,10 +139,10 @@ function weeklyForecast(response) {
       }@2x.png" alt="${forecasting.weather[0].description}">
       <div class="temperature-the-day">
         <span class="temperature-the-day-max">
-        ${Math.round(forecasting.temp.max)}
+        ${Math.round(forecasting.temp.max)}°
         </span>
         <span class="temperature-the-day-min">
-        ${Math.round(forecasting.temp.min)}
+        ${Math.round(forecasting.temp.min)}°
         </span>
       </div>
     </div>
@@ -161,7 +159,6 @@ function weeklyForecast(response) {
 
   forecastHTML = forecastHTML + ` </div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
 
 let search = document.querySelector("#submit-button");
