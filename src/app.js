@@ -128,4 +128,35 @@ fahrenheit.addEventListener("click", displayFahrenheitTemp);
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", displayCelsiusTemp);
 
+function weeklyForecast() {
+  let forecastElement = document.querySelector("#six-day-forecast");
+  let forecastHTML = `  <div class="row">`;
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sa", "So"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+      <div class="day-of-week">
+        ${day}
+      </div>
+      <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="rain">
+      <div class="temperature-the-day">
+        <span class="temperature-the-day-max">
+          28°
+        </span>
+        <span class="temperature-the-day-min">
+          23°
+        </span>
+      </div>
+    </div>
+ `;
+  });
+
+  forecastHTML = forecastHTML + ` </div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 searchCity("Taipei");
+weeklyForecast();
