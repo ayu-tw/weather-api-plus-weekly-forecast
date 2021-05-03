@@ -64,11 +64,11 @@
 #fahrenheit {
   font-weight: bolder;
   text-decoration-line: none;
+  cursor: default;
 }
 
 .active {
   color: black;
-  cursor: default;
 }
 
 #units {
@@ -116,4 +116,5 @@ footer a {
 #pointed-day:hover {
   border: 1px solid #d2e69c;
   border-radius: 10px;
+  cursor: grabbing;
 }
